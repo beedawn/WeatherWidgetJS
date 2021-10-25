@@ -23,7 +23,7 @@ function App() {
         .then((result) => {
           setData(result);
 
-          console.log(result);
+          
         });
     };
     fetchData();
@@ -39,7 +39,7 @@ function App() {
           ) : (
             <div>
               <Dimmer active>
-                <Loader>Loading..</Loader>
+                <Loader>Loading...</Loader>
               </Dimmer>
             </div>
           )}
