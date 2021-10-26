@@ -22,7 +22,7 @@ function App() {
         .then((res) => res.json())
         .then((result) => {
           setData(result);
-
+          
           
         });
     };
@@ -31,6 +31,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* {console.log(data.weather[0].main)} */}
       <Container>
         <Row>
             <Col>
