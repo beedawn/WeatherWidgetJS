@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Weather from "./components/weather";
 import { Dimmer, Loader } from "semantic-ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col} from 'react-bootstrap';
+import { Container, Row, Col } from "react-bootstrap";
 
 function App() {
   const [lat, setLat] = useState([]);
@@ -22,33 +22,44 @@ function App() {
         .then((res) => res.json())
         .then((result) => {
           setData(result);
-          
-          
         });
     };
     fetchData();
   }, [lat, long]);
-
-  return (
-    <div className="App">
-      {/* {console.log(data.weather[0].main)} */}
-      <Container>
-        <Row>
-            <Col>
-          {typeof data.main != "undefined" ? (
-            <Weather weatherData={data} />
-          ) : (
-            <div>
+  if (typeof data.main != "undefined") {
+    if (data.weather[0].main === "Clouds") {
+      return (
+        <div className="App">
+          {console.log(data.weather[0].main)}
+          <Container >
+            <Row>
+              <Col>
+                {/* {typeof data.main != "undefined" ? ( */}
+                <Weather weatherData={data} />
+                {/* ) : ( */}
+                {/* <div>
               <Dimmer active>
                 <Loader>Loading...</Loader>
               </Dimmer>
-            </div>
-          )}
-          </Col>
-        </Row>
-      </Container>
-    </div>
-  );
+            </div> */}
+                {/* )} */}
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      );
+    }
+  } else {
+    return (
+      <div className="App">
+        <div>
+          <Dimmer active>
+            <Loader>Loading...</Loader>
+          </Dimmer>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
