@@ -4,6 +4,7 @@ import Weather from "./components/weather";
 import { Dimmer, Loader } from "semantic-ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
+import imageUrl from "./img/clouds.jpg";
 
 function App() {
   const [lat, setLat] = useState([]);
@@ -27,11 +28,12 @@ function App() {
     fetchData();
   }, [lat, long]);
   if (typeof data.main != "undefined") {
-    if (data.weather[0].main === "Clouds") {
+    if (data.weather[0].main !== "") {
       return (
         <div className="App">
+        
           {console.log(data.weather[0].main)}
-          <Container >
+          <Container className="cloud" >
             <Row>
               <Col>
                 {/* {typeof data.main != "undefined" ? ( */}
