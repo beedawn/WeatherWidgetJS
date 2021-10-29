@@ -27,11 +27,13 @@ function App() {
     fetchData();
   }, [lat, long]);
   if (typeof data.main != "undefined") {
+    
     switch (data.weather[0].main) {
       case "Clouds":
         {
           document.body.style.backgroundImage =
             "url('https://bee.surf/weatherapp/static/media/clouds.738d2684.jpg')";
+            document.body.style.backgroundSize= 'cover';
         }
         break;
       case "Thunderstorm":
