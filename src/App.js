@@ -4,7 +4,7 @@ import Weather from "./components/weather";
 import { Dimmer, Loader } from "semantic-ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
-import image from './img/clouds.jpg';
+
 
 function App() {
   const [lat, setLat] = useState([]);
@@ -29,9 +29,9 @@ function App() {
   }, [lat, long]);
   if (typeof data.main != "undefined") {
     if (data.weather[0].main !== "") {
+      {document.body.style.backgroundImage = "url('https://bee.surf/weatherapp/static/media/clouds.738d2684.jpg')"}
       return (
-        <div className="App" style={{ 
-          backgroundImage: {image}}}>
+        <div className="App">
         
           {console.log(data.weather[0].main)}
           <Container  >
