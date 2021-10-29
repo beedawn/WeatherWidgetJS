@@ -5,7 +5,6 @@ import { Dimmer, Loader } from "semantic-ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
 
-
 function App() {
   const [lat, setLat] = useState([]);
   const [long, setLong] = useState([]);
@@ -28,30 +27,61 @@ function App() {
     fetchData();
   }, [lat, long]);
   if (typeof data.main != "undefined") {
-    if (data.weather[0].main !== "") {
-      {document.body.style.backgroundImage = "url('https://bee.surf/weatherapp/static/media/clouds.738d2684.jpg')"}
-      return (
-        <div className="App">
-        
-          {console.log(data.weather[0].main)}
-          <Container  >
-            <Row>
-              <Col>
-                {/* {typeof data.main != "undefined" ? ( */}
-                <Weather weatherData={data} />
-                {/* ) : ( */}
-                {/* <div>
+    switch (data.weather[0].main) {
+      case "Clouds":
+        {
+          document.body.style.backgroundImage =
+            "url('https://bee.surf/weatherapp/static/media/clouds.738d2684.jpg')";
+        }
+        break;
+      case "Thunderstorm":
+        {
+          document.body.style.backgroundImage = "url(' Thunderstorm')";
+        }
+        break;
+      case "Drizzle":
+        {
+          document.body.style.backgroundImage = "url(' ')";
+        }
+        break;
+      case "Rain":
+        {
+          document.body.style.backgroundImage = "url(' ')";
+        }
+        break;
+      case "Snow":
+        {
+          document.body.style.backgroundImage = "url(' ')";
+        }
+        break;
+      case "Clear":
+        {
+          document.body.style.backgroundImage = "url(' ')";
+        }
+        break;
+      default:
+        break;
+    }
+    return (
+      <div className="App">
+        {console.log(data.weather[0].main)}
+        <Container>
+          <Row>
+            <Col>
+              {/* {typeof data.main != "undefined" ? ( */}
+              <Weather weatherData={data} />
+              {/* ) : ( */}
+              {/* <div>
               <Dimmer active>
                 <Loader>Loading...</Loader>
               </Dimmer>
             </div> */}
-                {/* )} */}
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      );
-    }
+              {/* )} */}
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    );
   } else {
     return (
       <div className="App">
