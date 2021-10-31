@@ -32,33 +32,33 @@ function App() {
       case "Clouds":
         {
           document.body.style.backgroundImage =
-            "url('https://bee.surf/weatherapp/static/media/clouds.738d2684.jpg')";
+            "url('https://bee.surf/weatherapp/img/clouds.jpg')";
             document.body.style.backgroundSize= 'cover';
         }
         break;
       case "Thunderstorm":
         {
-          document.body.style.backgroundImage = "url(' Thunderstorm')";
+          document.body.style.backgroundImage = "url('https://bee.surf/weatherapp/img/thunderstorm.jpg')";
         }
         break;
       case "Drizzle":
         {
-          document.body.style.backgroundImage = "url(' ')";
+          document.body.style.backgroundImage = "url('https://bee.surf/weatherapp/img/drizzle.jpg')";
         }
         break;
       case "Rain":
         {
-          document.body.style.backgroundImage = "url(' ')";
+          document.body.style.backgroundImage = "url('https://bee.surf/weatherapp/img/rain.jpg')";
         }
         break;
       case "Snow":
         {
-          document.body.style.backgroundImage = "url(' ')";
+          document.body.style.backgroundImage = "url('https://bee.surf/weatherapp/img/snow.jpg')";
         }
         break;
       case "Clear":
         {
-          document.body.style.backgroundImage = "url(' ')";
+          document.body.style.backgroundImage = "url('https://bee.surf/weatherapp/img/clear.jpg')";
         }
         break;
       default:
